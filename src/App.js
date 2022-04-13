@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="dragDropArea">
       <DragDropContext>
         <Droppable droppableId="droppable">
           {(provided) => (
@@ -11,6 +11,7 @@ function App() {
               <Draggable draggableId="draggable-1" index={0}>
                 {(provided) => (
                   <div
+                    className="item"
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
