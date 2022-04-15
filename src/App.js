@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./App.css";
+import Header from "./components/header/Header";
 
 function App() {
   const [items] = useState([
@@ -13,35 +14,38 @@ function App() {
     items.splice(result.destination.index, 0, remove[0]);
   };
   return (
-    <div className="dragDropArea">
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable">
-          {(provided) => (
-            <div ref={provided.innerRef} {...provided.droppableProps}>
-              {items.map((item, index) => (
-                <Draggable
-                  draggableId={item.text}
-                  index={item.id}
-                  key={item.id}
-                >
-                  {(provided) => (
-                    <div
-                      className="item"
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      {item.text}
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-    </div>
+    <>
+      <Header />
+      <div className="dragDropArea">
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="droppable">
+            {(provided) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {items.map((item, index) => (
+                  <Draggable
+                    draggableId={item.text}
+                    index={item.id}
+                    key={item.id}
+                  >
+                    {(provided) => (
+                      <div
+                        className="item"
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        {item.text}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
+    </>
   );
 }
 
