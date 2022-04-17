@@ -35,11 +35,11 @@ header {
 .taskCardTitleInputArea {
   margin-bottom: 10px;
   cursor: pointer;
-  width: 30%;
+  width: 100%;
 }
 
 .taskCardTitleInput {
-  width: 80px;
+  width: 100%;
   font-size: 1.1rem;
   padding: 4px 6px;
   border-radius: 3px;
