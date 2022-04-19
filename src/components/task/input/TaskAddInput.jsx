@@ -4,12 +4,14 @@ const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //カードを追加する。
-    setTaskList([...taskList, { text: inputText }]);
+    if (inputText === "") {
+      return;
+    }
+    setTaskList([...taskList, { text: inputText, id: taskList.length }]);
     setInputText("");
   };
   const handleChange = (e) => {
     setInputText(e.target.value);
-    console.log(inputText);
   };
   return (
     <div>
