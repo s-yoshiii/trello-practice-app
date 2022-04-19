@@ -7,7 +7,14 @@ const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
     if (inputText === "") {
       return;
     }
-    setTaskList([...taskList, { text: inputText, id: taskList.length }]);
+    setTaskList([
+      ...taskList,
+      {
+        text: inputText,
+        id: taskList.length,
+        DraggableId: `task-${taskList.length}`,
+      },
+    ]);
     setInputText("");
   };
   const handleChange = (e) => {
