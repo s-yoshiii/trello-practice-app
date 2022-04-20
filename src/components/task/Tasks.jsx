@@ -2,12 +2,12 @@ import React from "react";
 import { Droppable, DragDropContext } from "react-beautiful-dnd";
 import Task from "./Task";
 
-const Tasks = ({ taskList, setTaskList, provided }) => {
+const Tasks = ({ taskList, setTaskList }) => {
   return (
     <div>
       <DragDropContext>
         <Droppable droppableId="droppable">
-          {(provided) => {
+          {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
               {taskList.map((task) => (
                 <div key={task.id}>
@@ -19,8 +19,8 @@ const Tasks = ({ taskList, setTaskList, provided }) => {
                 </div>
               ))}
               {provided.placeholder}
-            </div>;
-          }}
+            </div>
+          )}
         </Droppable>
       </DragDropContext>
     </div>
