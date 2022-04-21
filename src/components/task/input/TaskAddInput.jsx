@@ -1,7 +1,9 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 
 const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
   const handleSubmit = (e) => {
+    const taskId = uuid();
     e.preventDefault();
     //カードを追加する。
     if (inputText === "") {
@@ -11,8 +13,8 @@ const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
       ...taskList,
       {
         text: inputText,
-        id: taskList.length,
-        DraggableId: `task-${taskList.length}`,
+        id: taskId,
+        DraggableId: `task-${taskId}`,
       },
     ]);
     setInputText("");
