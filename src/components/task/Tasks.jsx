@@ -1,11 +1,8 @@
 import React from "react";
 import { Droppable, DragDropContext } from "react-beautiful-dnd";
 import Task from "./Task";
-const reorder = (taskList, startIndex, endIndex) => {
-  //タスクを並び替える
-  const remove = taskList.splice(startIndex, 1);
-  taskList.splice(endIndex, 0, remove[0]);
-};
+import { reorder } from "../../utiles";
+
 const Tasks = ({ taskList, setTaskList }) => {
   const handleDragEnd = (result) => {
     reorder(taskList, result.source.index, result.destination.index);
