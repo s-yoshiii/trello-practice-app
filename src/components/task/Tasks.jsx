@@ -8,8 +8,6 @@ const reorder = (taskList, startIndex, endIndex) => {
 };
 const Tasks = ({ taskList, setTaskList }) => {
   const handleDragEnd = (result) => {
-    console.log(result);
-
     reorder(taskList, result.source.index, result.destination.index);
     setTaskList(taskList);
   };
