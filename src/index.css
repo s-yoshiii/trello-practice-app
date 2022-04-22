@@ -19,9 +19,9 @@ header {
 }
 
 .app {
-  background: url('../src/images/mountain.jpg') no-repeat top center;
+  background: #10589E url('../src/images/mountain.jpg') no-repeat top center;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .taskCard {
@@ -104,4 +104,17 @@ header {
 .addTaskCardButton:hover {
   box-shadow: none;
   transform: translate(1px, 1px);
+}
+
+.taskCardHeadArea {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskCardDeleteButton {
+  border: none;
+  background-color: rgb(228, 228, 228);
+  cursor: pointer;
+  font-size: 16px;
+  color: rgb(158, 46, 46);
 }
